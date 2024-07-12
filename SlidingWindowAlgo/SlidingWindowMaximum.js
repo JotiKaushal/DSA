@@ -52,7 +52,7 @@ const optimizedMaxSlidingWindow = function (nums, k) {
         }
     }
     return result;
-    
+     
 }
 //time complexity: o(n)
 //space complexity: o(n)
