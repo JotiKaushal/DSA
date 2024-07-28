@@ -26,29 +26,30 @@
 //optimized solution
 //kadane logic:
 /*
+sum = 0
+max = -infinity
+for loop
 sum +=num[i]
-sum > max?
-max = sum
+max = math.max(sum, max)
 sum< 0?
 sum = 0 <== reset sum to 0
+end loop
+return max
 */
 
 function maxSubarraySum(nums) {
-  if(nums.length === 0) return 0;
-  let sum = 0;
-  let maxSum = nums[0];
-  for (let i = 0; i < nums.length; i++) {
-    console.log('i', i);
-    sum += nums[i];
-    console.log('sum', sum);
-    if (sum > maxSum) {
-      maxSum = sum;
-      console.log('maxSum', maxSum);
-    } else if (sum < 0) {
-      sum = 0;
-    }
+  let sum = 0,
+  max = -Infinity;
+if (nums.length === 1) return nums[0];
+for (let i = 0; i < nums.length; i++) {
+  sum += nums[i];
+  max = Math.max(max, sum);
+
+  if (sum < 0) {
+    sum = 0;
   }
-  return maxSum;
+}
+return max;
 }
 //time complexity: o(n)
 //space: o(1)
