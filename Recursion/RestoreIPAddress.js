@@ -15,7 +15,7 @@
 // Input: s = "101023"
 // Output: ["1.0.10.23","1.0.102.3","10.1.0.23","10.10.2.3","101.0.2.3"]
  
-//for reference https://www.youtube.com/watch?v=ORLBbFd5U_A
+//for reference https://www.youtube.com/watch?v=XQR0KeyVciM
 
 const restoreIP = (s) => {
 const n = s.length;

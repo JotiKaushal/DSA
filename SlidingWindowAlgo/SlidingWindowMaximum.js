@@ -7,7 +7,7 @@ in the window. Each time the slding window moves right by one position
 Input: [1,3,-1,-3,5,3,6,7], k=3
 Output: [3,3,5,5,6,7]
 */ 
-
+//https://www.youtube.com/watch?v=kx7PSOBagFY&list=PLKhlp2qtUcSZtJefDThsXcsAbRBCSTgW4&index=10
 //Brut force solution
 const maxSlidingWindow = function (nums, k) {
  if(nums.length === 0) return 0;
