@@ -14,27 +14,28 @@
 // Example 2:
 // Input: s = "cbbd"
 // Output: "bb"
+var longestPalindrome = function(s) {
+  let longest = "";
 
-const getDrom = (left, right, s) =>{
-    while(left >= 0 && right < s.length){
-        if(s[left] !== s[right]) break;
-        left--;
-        right++;
-    }
-    return[left+1, right];
+function isPal(s, l, r){
+  while(l >= 0 && r < s.length && s[l] === s[r]){
+      l--;
+      r++;
+  }
+  return s.slice(l+1, r);
 }
 
-const longestPallindrom = (s) =>{
-let max = [0, 1];
-for (let i = 0; i < s.length; i++) {
-    const even = getDrom(i-1, i, s);
-    const odd = getDrom(i-1, i+1, s);
-    const currentMax = odd[1] - odd[0] > even[1] - even[0]? odd: even;
-    max =  currentMax[1] - currentMax[0] > max[1] - max[0]? currentMax: max;
-    
-}
-return s.slice(max[0], max[1]);
-
+for(let i = 0; i< s.length; i++){
+  let oddPal = isPal(s,i, i);
+  let evenPal = isPal(s, i, i+1);
+  let currentLongest = oddPal.length > evenPal.length ? oddPal : evenPal;
+  if(currentLongest.length > longest.length){
+      longest = currentLongest
+  }
 }
 
-console.log(longestPallindrom("babad"));
+return longest;
+
+};
+
+console.log(longestPallindrom("ccc"));

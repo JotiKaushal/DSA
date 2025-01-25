@@ -24,3 +24,5 @@ var missingNumber = function (nums) {
 };
 
 console.log(missingNumber([0,1]));
+
+//https://www.youtube.com/watch?v=8rMNikLmheI
