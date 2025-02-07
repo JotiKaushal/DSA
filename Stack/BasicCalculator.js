@@ -99,4 +99,4 @@ var basicCalculator = function(s) {
     return res + sign * num;
 };
 
-console.log(basicCalculator(' 2 - 1 + (4-2) '));
+console.log(basicCalculator('(1+(4+5+2)-3)+(6+8)'));

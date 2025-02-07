@@ -5,7 +5,19 @@
 var myStack = function () {
     this.q1 =[];
     this.q2 = [];
+    this.hitQ=[];
 }
+myStack.hit =(timestamp)=>{
+this.hitQ.push(timestamp);
+}
+
+myStack.getHit=(timestamp)=>{
+while(timestamp - this.hitQ[0] >= 300){
+    this.hitQ.shift();
+}
+return this.hitQ.length;
+}
+
 myStack.prototype.push = function (element) {
     while (this.q1.length !== 0) {
         this.q2.push(this.q1.shift());

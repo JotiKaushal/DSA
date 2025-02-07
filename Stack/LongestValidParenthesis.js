@@ -36,5 +36,7 @@ const longestValidParenthesis = (s) => {
     return max;
 };
 
-console.log(longestValidParenthesis('(())'));
+//check this also moving forward and backward using two poiunters open and close forward if close is greate then open reset counter, moving backwards if open is greater than close reset counters. keep maxLength = open+close if open and close is same
+
+console.log(longestValidParenthesis(')(())'));
 

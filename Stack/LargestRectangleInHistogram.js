@@ -88,3 +88,5 @@ var largestRectangleArea = function(heights) {
    
     return ans;
 };
+
+//https://www.youtube.com/watch?v=vhUxKxiconE
