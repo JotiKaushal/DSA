@@ -28,34 +28,18 @@
 //path and slicing operations.
 // Code
 var permute = function(nums) {
-    let result = [];
-    let temp =[]; 
-    permuteRec(nums, temp, result); 
-    return result; 
-             
-};
-
-function permuteRec(nums, temp, result) { 
-    console.log('temp0', temp); 
-    //if we match length then we have all th permutations
-    if (temp.length === nums.length) { 
-            result.push([...temp]); 
-        return; 
-    } 
-    //iterate thru all elements
-    for (let i = 0; i < nums.length; i++) { 
-        //if number already exist in temp skip it
-        if(temp.indexOf(nums[i]) > -1){continue;}
-        //add the element to temp
-      temp.push(nums[i]);
-      console.log('temp1', temp);
-      
-      //find permutations for other elements
-      permuteRec(nums, temp, result);
-      //remove the element
-      temp.pop();
-      console.log('temp2', temp);
-    } 
+    const result = [];
+function backtrack(nums, path){
+    if(nums.length === 0)
+ {   result.push(path);
+ return;
 }
+    for(let i =0; i < nums.length;i++){
+        backtrack([...nums.slice(0,i), ...nums.slice(i+1)], [...path, nums[i]])
+    }
+}
+backtrack(nums, [])
+return result;
 
-console.log(permute([1,2]));
+};
+console.log(permute([2,3,1]));
