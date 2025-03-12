@@ -21,7 +21,7 @@ var pathSum =(root, target) =>{
         if(!root) return false;
         currSum += root.val;
         if(!root.left && !root.right) return currSum == target;
-        return recursive(root.eft, currSum) || recursive(root.right, currSum);
+        return recursive(root.left, currSum) || recursive(root.right, currSum);
     }
     return recursive(root, 0);
 }

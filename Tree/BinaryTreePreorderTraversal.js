@@ -40,3 +40,24 @@ const preorderTraversal = (root) =>{
  }
  return res;
 }
+
+//iterative solution
+
+var preorderTraversal2 = function(root) {
+    if(!root) return [];
+   const res = [];
+   const stack = [root];
+
+   while(stack.length > 0){
+       let node = stack.pop();
+       res.push(node.val);
+       if(node.right){
+          stack.push(node.right)
+       }
+       if(node.left){
+           stack.push(node.left)
+       }
+   }
+
+   return res;
+};

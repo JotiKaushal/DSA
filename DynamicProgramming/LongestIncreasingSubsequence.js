@@ -14,7 +14,7 @@
  //reference https://www.youtube.com/watch?v=IftXURT0kq4
 
 
- const  longestIncreasingSub = (nums) => {
+ const  longestIncreasingSubIteration = (nums) => {
     let dp = new Array(nums.length).fill(1);
     for(let i = 1; i < nums.length; i++){
         for(let j = i; j >= 0; j--){
@@ -25,3 +25,47 @@
     }
     return Math.max(...dp);
  }
+//[10,9,2,5,3,7,101,18]
+ const lengthOfLIS = (nums) => {
+    const subsequence = [];
+  
+    for (const currentNumber of nums) {
+      if (
+        subsequence.length === 0 ||
+        currentNumber > subsequence[subsequence.length - 1]
+      ) {
+        subsequence.push(currentNumber);
+      } else {
+        let idx = lowerBound(subsequence, currentNumber);
+        subsequence[idx] = currentNumber;
+        console.log(currentNumber);
+        console.log(subsequence);
+        console.log(idx)
+      }
+    }
+  
+    return subsequence.length;
+  };
+  
+  // Find the first element that is greater than or equal to the target
+  const lowerBound = (subsequence, target) => {
+    let left = 0;
+    let right = subsequence.length - 1;
+    let ans = 0;
+  
+    while (left <= right) {
+      let mid = Math.floor((left + right) / 2);
+  
+      if (subsequence[mid] >= target) {
+        ans = mid;
+        right = mid - 1;
+      } else {
+        left = mid + 1;
+      }
+    }
+  
+    return ans;
+  };
+
+
+  console.log(lengthOfLIS([10,9,2,5,3,7,101,18]))

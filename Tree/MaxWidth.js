@@ -27,6 +27,8 @@ Explanation: The maximum width exists in the fourth level with length 7 (6,null,
  * @param {TreeNode} root
  * @return {number}
  */
+
+//https://www.youtube.com/watch?v=zM9N_x_v_24&list=PLFdAYMIVJQHPswf74XJDtuWV-4BOeP65l&index=10
 var widthOfBinaryTree = function(root) {
     const minPos = [0];
       let maxWidth = 0;

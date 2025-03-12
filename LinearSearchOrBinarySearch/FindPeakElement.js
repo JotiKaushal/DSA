@@ -25,6 +25,10 @@ var findPeakElement = function(nums) {
     let start =0, end = nums.length -1;
     while(start <= end){
         let mid = Math.floor((start+end)/2);
+        console.log(start, end);
+        
+        console.log(mid);
+        
         if(nums[mid]< nums[mid+1]){
             start = mid+1;
         }else{
@@ -34,4 +38,4 @@ var findPeakElement = function(nums) {
     return start;
 };
 
-console.log(findPeakElement([1,2,3,4]));
+console.log(findPeakElement([1,2,1,3,5,6,4]));

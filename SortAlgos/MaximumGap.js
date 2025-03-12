@@ -59,3 +59,11 @@ return maximumGap;
 }
 
 console.log(maximumGap([3,6,9,1]));
+
+
+//https://www.youtube.com/watch?v=SAkRBaJB8TE
+
+
+function radixSort2(array){
+
+}

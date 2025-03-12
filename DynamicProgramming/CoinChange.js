@@ -44,12 +44,17 @@ var coinChange = function(coins, amount) {
     for (let i = 1; i <= amount; i++) {
         for (let coin of coins) {
             // If we can use this coin to make up the amount, update dp value
+            console.log("amount ", i);
+            
             if (i - coin >= 0) {
                 console.log(dp[i]);
                 console.log(dp[i - coin]+ 1);
                 dp[i] = Math.min(dp[i], dp[i - coin] + 1);
             }
+            
         }
+        console.log(dp);
+
     }
     
     // Return the final value in dp array or -1 if it's not possible

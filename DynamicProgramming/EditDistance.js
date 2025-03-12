@@ -27,14 +27,8 @@
 //reference https://www.youtube.com/watch?v=HwDXH35lr0o
 
 const buildTable =function(len1, len2){
-    const table = [];
-    for(let r = 0; r < len1+1; r++){
-        table[r] = [];
-        for(let c =0; c< len2+1; c++){
-            table[r].push(0);
-        }
-    }
-
+    const table = Array(len1+1).fill(0).map(_=>Array(len2+1).fill(0));
+    
     for(let r =0; r < table.length;r++){
         table[r][0] = r;
         for(let c =0; c < table[r].length; c++ ){
@@ -42,6 +36,7 @@ const buildTable =function(len1, len2){
         }
     }
 
+console.log(table);
 
     return table;
 }

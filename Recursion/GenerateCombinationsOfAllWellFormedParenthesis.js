@@ -30,4 +30,4 @@ const generateParenthesis = (n) => {
   return solutions;
 };
 
-console.log(generateParenthesis(3));
+console.log(generateParenthesis(2));

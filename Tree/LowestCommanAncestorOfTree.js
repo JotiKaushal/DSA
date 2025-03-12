@@ -17,11 +17,27 @@
 // Output: 1
  //https://www.youtube.com/watch?v=fehixeGZY9k
 
+ //below is for binary tree
  var lowestCommonAncestor = function(root, p, q) {
     if (!root || root === p || root === q) return root
      const left = lowestCommonAncestor(root.left, p, q)
      const right = lowestCommonAncestor(root.right, p, q)
      if (!left) return right  // p and q are in the right subtree
      if (!right) return left  // p and q are in the left subtree
-     return root              // p is in one side and q is in the other
+     return root              // p is in one side and q is in the other, found both
  };
+
+
+ //For binary search tree where left node is less than root and right node is greater than root
+
+ var lowestCommonAncestor2 = function(root, p, q) {
+    if(p.val <root.val && q.val < root.val){//p and q ar on left side of the binary tree
+     return lowestCommonAncestor(root.left, p, q)
+    }
+    else if(p.val > root.val && q.val > root.val){ //p q are on the right side of the tree
+     return lowestCommonAncestor(root.right, p, q)
+    }
+    else{
+     return root; // p and q are the decendednt of root
+    }
+  };

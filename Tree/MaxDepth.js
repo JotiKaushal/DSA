@@ -8,6 +8,7 @@
 // Input: root = [1,null,2]
 // Output: 2
 //https://www.youtube.com/watch?v=vT2ySdkTn0k
+//https://www.youtube.com/watch?v=o2LEC2NEVuk
  
 //TC:o(n) SC: o(n)
 var maxDepth = (root) =>{
@@ -18,18 +19,10 @@ var maxDepth = (root) =>{
 //BFS: breath first serach
 //TC:o(n) SC: o(n)
 var BFSapproach =(root)=>{
-    if(root === null) return 0;
-    let queue=[root];
-    let depth = 0;
-    while(queue.length){
-        let len =queue.length;
-        for (let i = 0; i < len; i++) {
-           let current = queue.shift();
-           if(current.left) queue.push(current.left);
-           if(current.right) queue.push(current.right);
-           depth++;
-        }
-    }
-
-return depth;
+        if (root === null) return 0; // Base case: if node is null, return 0
+   
+           const leftHeight = maxDepth(root.left);   // Get height of left subtree
+           const rightHeight = maxDepth(root.right); // Get height of right subtree
+   
+           return 1 + Math.max(leftHeight, rightHeight); // Height of current node
 }

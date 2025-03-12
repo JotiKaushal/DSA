@@ -12,6 +12,8 @@ for (let i = 1; i < n; i++) {
   
   while(j >= 0 && arr[j] > key){
     arr[j+1] = arr[j];
+    console.log(arr);
+    
     j--;
   }
   arr[j+1] = key;

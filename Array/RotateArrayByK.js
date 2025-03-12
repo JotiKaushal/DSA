@@ -15,6 +15,11 @@
 
 //optimized solution
 //[1,2,3,4,5,6,7] [7,6,5,4,3,2,1] [5,6,7,4,3,2,1] [5,6,7,1,2,3,4]
+// Summary
+// Time Complexity: 
+// O(n)
+// Space Complexity: 
+// O(1)
 function RotateArrayByK(arr, k) {
     if(arr.length === 0) return 0;
 

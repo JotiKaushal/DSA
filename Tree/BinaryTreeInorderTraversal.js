@@ -23,3 +23,25 @@ var inorderTraversal = function(root) {
     return res;
 
    };
+
+//iterative solution
+var inorderTraversal2 = function(root) {
+   const res = [];
+   const stack = [];
+
+  while(root || stack.length >0){
+   while(root){
+       stack.push(root);
+       root = root.left;
+   }
+   root = stack.pop();
+   res.push(root.val);
+   root = root.right;
+  }
+
+  return res;
+};
+
+//    For Inorder, we do something between left and right.
+// For Preorder, we do something before left and right.
+// For Postorder, we do something after left and right.
