@@ -59,3 +59,6 @@ var cloneGraph = function(node) {
     }
     return dfs(node);
 };
+
+//TC:o(n+e) n = number of nodes, e = edges
+//SC:o(v) value in visite

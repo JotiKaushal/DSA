@@ -35,24 +35,33 @@
 // Code
 //reference https://www.youtube.com/watch?v=-b9ks62HwEg
 const minTime = (n, edges, hasApple) => {
-    const children = new Array(n);
-    for(let i =0; i<n; i++){
-        children[i] = new Array();
-    }
-    for(const edge of edges){
+    const children = new Array(n).fill(0).map(_=>new Array());
+    
+    for(let edge of edges){
         children[edge[0]].push(edge[1]);
         children[edge[1]].push(edge[0]);
     }
-    const dfs = (i, p)=>{
-        let pathlen = 0;
-        for(const j of children[i]){
-            if(j == p) continue;
-            pathlen += dfs(j, i);
+    let res = 0;
+   let dfs = function(node, parent) {
+      let val = false;
+
+console.log(children[node]);
+        for(let child of children[node]){
+            if(child === parent) continue;
+             res++;
+             let bol = dfs(child, node);
+             if(bol) res++;
+             else  res--;
+             val = val || bol
         }
-        if(i == 0) return pathlen;
-        return pathlen > 0 || hasApple[i]? pathlen+2 : 0;
-    }
-    return dfs(0,-1);
+
+       if(hasApple[node]) return true;
+      return val;
+
+   }
+
+   dfs(0);
+   return res;
 };
 
 console.log(minTime(7, [[0,1],[0,2],[1,4],[1,5],[2,3],[2,6]],[false,false,true,false,true,true,false] ));

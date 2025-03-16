@@ -49,3 +49,6 @@ var numIslands = function (grid) {
   }
   return count;
 };
+
+//tc:o(m*n)
+//sc: o(m*n)

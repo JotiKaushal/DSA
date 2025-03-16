@@ -20,9 +20,10 @@
 // Input: times = [[1,2,1]], n = 2, k = 2
 // Output: -1
  
-// reference: https://www.youtube.com/watch?v=Lam9Q7-W8Rc
-
-
+// reference with dijkstra: https://www.youtube.com/watch?v=Lam9Q7-W8Rc
+//tc:o(elogv)
+//sc: o(v)
+//https://www.youtube.com/watch?v=vbbLxsdfmDg
 var networkDelayTime = function(times, n, k) {
     let adjList = new Array(n+1).fill(null);
     for(let time of times){

@@ -22,12 +22,17 @@
 // reference https://leetcode.com/problems/path-with-maximum-probability/solutions/5696030/100-00-easy-solution-with-explanation/
 
 // Intuition ✒️
-// To solve this problem, we need to find the path between two nodes in an undirected graph that maximizes the product of edge probabilities. The Bellman-Ford algorithm, which is typically used to find the shortest paths in graphs with negative weights, can be adapted to solve this problem. Instead of minimizing distances, we will maximize probabilities by updating the maximum probability to reach each node iteratively.
+// To solve this problem, we need to find the path between two nodes in an undirected graph that maximizes the product of edge probabilities.
+//  The Bellman-Ford algorithm, which is typically used to find the shortest paths in graphs with negative weights, can be adapted to solve this problem. 
+// //Instead of minimizing distances, we will maximize probabilities by updating the maximum probability to reach each node iteratively.
 // Approach 🚀
-// 1️⃣Initialize an array dist where dist[i] holds the maximum probability to reach node i from the start node. Set dist[start] = 1 since the probability of starting at the start node is 1.
+// 1️⃣Initialize an array dist where dist[i] holds the maximum probability to reach node i from the start node. Set dist[start] = 1 since the probability of 
+// //tarting at the start node is 1.
 // 2️⃣ Perform up to n-1 iterations, where n is the number of nodes. In each iteration, check each edge and update the probability of reaching the neighboring nodes.
-// 3️⃣ For each edge (u, v), if the probability of reaching v through u (i.e., dist[u] * succProb[i]) is greater than the current known probability to reach v (dist[v]), update dist[v]. Similarly, update dist[u] if the probability of reaching u through v is greater.
-// 4️⃣After completing the iterations, dist[end] will contain the maximum probability of reaching the end node from the start node. If there's no path, it will remain 0.
+// 3️⃣ For each edge (u, v), if the probability of reaching v through u (i.e., dist[u] * succProb[i]) is greater than the current known probability to reach v 
+// //(dist[v]), update dist[v]. Similarly, update dist[u] if the probability of reaching u through v is greater.
+// 4️⃣After completing the iterations, dist[end] will contain the maximum probability of reaching the end node from the start node. If there's no path, 
+// //it will remain 0.
 // Time complexity:⏲️
 // The algorithm runs in O(n×E), where n is the number of nodes and E is the number of edges. This is because we perform n-1 iterations over all the edges.
 // Space complexity:🛰️
@@ -43,7 +48,10 @@ var maxProbability = function(n, edges, succProb, start_node, end_node) {
             let u = edges[j][0];
             let v = edges[j][1];
             let prob = succProb[j];
-
+             console.log(maxProb);
+              console.log('u '+u,'v '+v,'prob '+prob, 'u prob '+ maxProb[u] * prob,'v prob '+ maxProb[v] * prob);
+              console.log(maxProb);
+              
             if (maxProb[u] * prob > maxProb[v]) {
                 maxProb[v] = maxProb[u] * prob;
                 updated = true;
@@ -58,3 +66,5 @@ var maxProbability = function(n, edges, succProb, start_node, end_node) {
 
     return maxProb[end_node];
 };
+
+console.log(maxProbability(3, [[0,1],[1,2],[0,2]], [0.5,0.5,0.2], 0, 2));
